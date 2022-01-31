@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd">
+	<flow name="jms-subscribeFlow" doc:id="7db5b1e1-cc22-44a0-a069-3c6ec28ecf6a" >
+		<jms:listener doc:name="On New Message" doc:id="7108e00a-c381-4b08-9b3c-be1856e86200" config-ref="JMS_Config" destination="Q.FST.EMP">
+			<jms:consumer-type >
+				<jms:queue-consumer />
+			</jms:consumer-type>
+		</jms:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="94838615-f7b2-48e4-92a2-763559473275" message="#[payload]"/>
+	</flow>
+</mule>
